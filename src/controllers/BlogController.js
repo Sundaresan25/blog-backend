@@ -137,7 +137,7 @@ const deleteComment = (req, res, next) => {
   Comment.findByIdAndRemove(id)
     .then(() => {
       res.json({
-        message: "Blog deleted successfully!",
+        message: "Comment deleted successfully!",
       });
     })
     .catch((error) => {
