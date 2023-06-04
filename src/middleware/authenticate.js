@@ -11,7 +11,7 @@ const authenticate = (req, res, next) => {
     });
   }
 
-  jwt.verify(token, "secretValue", (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) {
       return res.status(403).json({
         message: "Forbidden",

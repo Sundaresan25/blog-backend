@@ -124,7 +124,7 @@ const updateComment = (req, res, next) => {
   Comment.findByIdAndUpdate(req.body._id, { $set: updatedData })
     .then(() => {
       res.json({
-        message: "Comment updated successfuly!",
+        message: "Comment updated successfully!",
       });
     })
     .catch((error) => {

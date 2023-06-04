@@ -9,8 +9,7 @@ const cors = require("cors");
 const AuthRoute = require("./routes/auth");
 const BlogsRoute = require("./routes/blogs");
 
-const uri =
-  "mongodb+srv://Sundar:fYYeJCkNhtbJXI55@cluster0.actajyj.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URL;
 
 mongoose.connect(uri, {
   useNewUrlParser: true,

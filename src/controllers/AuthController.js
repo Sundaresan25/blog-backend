@@ -55,9 +55,9 @@ const login = (req, res, next) => {
               name: user.name,
               unique_id: Math.random().toString(36).substr(2),
             },
-            "secretValue",
+            process.env.ACCESS_TOKEN_SECRET,
             {
-              expiresIn: "2h",
+              expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME,
             }
           );
 
@@ -66,9 +66,9 @@ const login = (req, res, next) => {
               name: user.name,
               unique_id: Math.random().toString(36).substr(2),
             },
-            "secretrefreshValue",
+            process.env.REFRESH_TOKEN_SECRET,
             {
-              expiresIn: "2h",
+              expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME,
             }
           );
 
