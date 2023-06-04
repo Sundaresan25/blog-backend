@@ -16,7 +16,7 @@ router.post("/comment", authenticate, ProductController.addComment);
 router.put("/comment", authenticate, ProductController.updateComment);
 
 // delete
-router.delete("/comment", authenticate, ProductController.updateComment);
+router.delete("/comment", authenticate, ProductController.deleteComment);
 
 // Get comments for a specific blog
 router.get("/comment/:blogId", authenticate, ProductController.getComment);
