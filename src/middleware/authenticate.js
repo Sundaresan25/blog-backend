@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 
+// Middleware function to authenticate the token
 const authenticate = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
@@ -7,7 +8,7 @@ const authenticate = (req, res, next) => {
     req.user = decode;
     next();
   } catch (error) {
-    if ((error.name = "TokenExpiredError")) {
+    if (error.name === "TokenExpiredError") {
       res.status(401).json({
         message: "Token Expired",
       });

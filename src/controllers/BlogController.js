@@ -1,5 +1,6 @@
 const { Blogs, Comment } = require("../models/Blogs");
 
+// get All blogs
 const getAllBlogs = (req, res, next) => {
   Blogs.find()
     .then((response) => {
@@ -12,6 +13,7 @@ const getAllBlogs = (req, res, next) => {
     });
 };
 
+// get user personal blogs
 const getMyBlogs = (req, res, next) => {
   const { id } = req.params;
 
@@ -28,6 +30,7 @@ const getMyBlogs = (req, res, next) => {
     });
 };
 
+// add blog
 const addBlogs = (req, res, next) => {
   const blogs = new Blogs({
     title: req.body.title,
@@ -50,6 +53,7 @@ const addBlogs = (req, res, next) => {
     });
 };
 
+// update blog
 const updateBlogs = (req, res, next) => {
   const updatedData = {
     title: req.body.title,
@@ -71,6 +75,7 @@ const updateBlogs = (req, res, next) => {
     });
 };
 
+// delete blog
 const deleteBlogs = (req, res, next) => {
   const id = req.body.id;
   Blogs.findByIdAndRemove(id)
@@ -86,6 +91,7 @@ const deleteBlogs = (req, res, next) => {
     });
 };
 
+// adding comment
 const updateComment = (req, res, next) => {
   const { content, author, authorMail, blogId } = req.body;
   const newComment = new Comment({
@@ -105,6 +111,7 @@ const updateComment = (req, res, next) => {
     });
 };
 
+// get comment based blog id
 const getComment = (req, res, next) => {
   const { blogId } = req.params;
 

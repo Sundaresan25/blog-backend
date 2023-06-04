@@ -7,7 +7,8 @@ const authenticate = require("../middleware/authenticate");
 
 router.post("/register", AuthController.register);
 router.post("/login", AuthController.login);
+
+// Update user route
 router.put("/updateuser", authenticate, AuthController.updateuser);
-router.post("/refresh-token", AuthController.refreshToken);
 
 module.exports = router;

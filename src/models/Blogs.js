@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Define the blogs schema
 const blogsSchema = new Schema(
   {
     title: {
@@ -22,6 +23,7 @@ const blogsSchema = new Schema(
   { timestamps: true }
 );
 
+// Define the comment schema
 const commentSchema = new mongoose.Schema({
   content: {
     type: String,
@@ -46,10 +48,13 @@ const commentSchema = new mongoose.Schema({
   },
 });
 
+// Create the Comment model
 const Comment = mongoose.model("Comment", commentSchema);
 
+// Create the Blogs model
 const Blogs = mongoose.model("Blogs", blogsSchema);
 
+// Export the models
 module.exports = {
   Blogs,
   Comment,

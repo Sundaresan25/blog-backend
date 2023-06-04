@@ -27,16 +27,22 @@ db.on("open", (err) => {
 });
 
 const app = express();
+
+// Enable Cross-Origin Resource Sharing
 app.use(cors("*"));
+
+// Logging middleware
 app.use(morgan("dev"));
+
+// Parse URL-encoded and JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use("/uplods", express.static("uplods"));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
 
+// Routes
 app.use("/auth", AuthRoute);
 app.use("/blogs", BlogsRoute);
