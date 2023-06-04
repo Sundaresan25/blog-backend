@@ -2,7 +2,7 @@ Node.js Blog App
 
 Description:
 This is a blog application built using Node.js and Express.js, with MongoDB as the database. It allows users to create, read, update, and delete blog posts. The application provides a user-friendly interface for managing blog content and interacting with readers.
-
+</br>
 Features:
 User Registration and Authentication: Users can create an account and log in to manage their blog posts.
 Create and Publish Blog Posts: Authenticated users can write new blog posts and publish them for others to read.
