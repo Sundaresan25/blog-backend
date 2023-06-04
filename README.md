@@ -4,16 +4,15 @@ Description:
 This is a blog application built using Node.js and Express.js, with MongoDB as the database. It allows users to create, read, update, and delete blog posts. The application provides a user-friendly interface for managing blog content and interacting with readers.
 
 Features:
-
 User Registration and Authentication: Users can create an account and log in to manage their blog posts.
 Create and Publish Blog Posts: Authenticated users can write new blog posts and publish them for others to read.
 Read Blog Posts: Users can browse and read blog posts published by other users.
 Update and Delete Blog Posts: Authors can edit or delete their own blog posts.
 Commenting System: Users can leave comments on blog posts to engage in discussions and provide feedback.
 User Profiles: Users have their own profiles where they can view and manage their published blog posts.
-Installation:
 
-Clone the repository: git clone 
+Installation:
+Clone the repository: git clone https://github.com/Sundaresan25/blog-backend.git
 Install dependencies: npm install
 Set up the MongoDB database connection by providing the URI in the .env file.
 Start the server: npm start
