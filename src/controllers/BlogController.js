@@ -114,20 +114,23 @@ const addComment = (req, res, next) => {
 // update comment
 const updateComment = (req, res, next) => {
   const { content, author, authorMail, blogId } = req.body;
-  const newComment = new Comment({
-    content,
-    author,
-    authorMail,
-    blogId,
-  });
+  const updatedData = {
+    content: content,
+    author: author,
+    authorMail: authorMail,
+    blogId: blogId,
+  };
 
-  newComment
-    .save()
-    .then((comment) => {
-      res.status(201).json(comment);
+  Comment.findByIdAndUpdate(req.body._id, { $set: updatedData })
+    .then(() => {
+      res.json({
+        message: "Comment updated successfuly!",
+      });
     })
-    .catch((err) => {
-      res.status(500).json({ error: "Failed to create comment" });
+    .catch((error) => {
+      res.json({
+        error: error.message,
+      });
     });
 };
 
