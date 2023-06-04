@@ -92,6 +92,26 @@ const deleteBlogs = (req, res, next) => {
 };
 
 // adding comment
+const addComment = (req, res, next) => {
+  const { content, author, authorMail, blogId } = req.body;
+  const newComment = new Comment({
+    content,
+    author,
+    authorMail,
+    blogId,
+  });
+
+  newComment
+    .save()
+    .then((comment) => {
+      res.status(201).json(comment);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: "Failed to create comment" });
+    });
+};
+
+// update comment
 const updateComment = (req, res, next) => {
   const { content, author, authorMail, blogId } = req.body;
   const newComment = new Comment({
@@ -108,6 +128,22 @@ const updateComment = (req, res, next) => {
     })
     .catch((err) => {
       res.status(500).json({ error: "Failed to create comment" });
+    });
+};
+
+// delete comment
+const deleteComment = (req, res, next) => {
+  const id = req.body.id;
+  Comment.findByIdAndRemove(id)
+    .then(() => {
+      res.json({
+        message: "Blog deleted successfully!",
+      });
+    })
+    .catch((error) => {
+      res.json({
+        error: error.message,
+      });
     });
 };
 
@@ -130,6 +166,8 @@ module.exports = {
   addBlogs,
   updateBlogs,
   deleteBlogs,
+  addComment,
   updateComment,
+  deleteComment,
   getComment,
 };

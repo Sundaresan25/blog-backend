@@ -11,7 +11,12 @@ router.delete("/delete", authenticate, ProductController.deleteBlogs);
 router.get("/my-blogs", authenticate, ProductController.getMyBlogs);
 
 // Add comment route
-router.post("/comment", authenticate, ProductController.updateComment);
+router.post("/comment", authenticate, ProductController.addComment);
+// update
+router.put("/comment", authenticate, ProductController.updateComment);
+
+// delete
+router.delete("/comment", authenticate, ProductController.updateComment);
 
 // Get comments for a specific blog
 router.get("/comment/:blogId", authenticate, ProductController.getComment);
